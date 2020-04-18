@@ -19,26 +19,23 @@ class AppMeta {
                     git: 'https://github.com/mogu1986/framework-parent.git'
             ],
             [
-                    app: "demo-provider",
-                    lang: 'java',
-                    group: 'dubbo',
-                    appPort: 30001,
-                    artifact: 'dubbo-demo-provider/target/dubbo-demo-provider.jar',
-                    git: 'http://gitlab.shixhlocal.com/gaowei/dubbo-demo.git',
-                    javaOpts: [
-                            'mit': '-Duser.timezone=Asia/Shanghai -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080',
-                            'sit': '-Duser.timezone=Asia/Shanghai -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080',
-                            'uat': '-Duser.timezone=Asia/Shanghai -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080'
-                    ],
-                    portArgs: '-p 30001:20880 -p 30002:8080'
-            ],
-            [
                     app: "distribution",
                     lang: 'java',
                     namespace: 'dev',
-                    group: 'web',
                     artifact: 'distribution-service/target/distribution-service.jar',
                     git: 'http://gitlab.top.mw/distribution/distribution.git',
+                    javaOpts: [
+                            'mit': '-Duser.timezone=Asia/Shanghai -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080',
+                            'sit': '-Duser.timezone=Asia/wh -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080',
+                            'uat': '-Duser.timezone=Asia/hz -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080'
+                    ]
+            ],
+            [
+                    app: "point",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'point-service-provider/target/point-service-provider.jar',
+                    git: 'http://gitlab.top.mw/salepoint/point.git',
                     javaOpts: [
                             'mit': '-Duser.timezone=Asia/Shanghai -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080',
                             'sit': '-Duser.timezone=Asia/wh -Djava.security.egd=file:/dev/./urandom -Ddubbo.registry.address=zookeeper://10.50.4.207:2181 -Ddubbo.protocol.port=20880 -Dserver.port=8080',
