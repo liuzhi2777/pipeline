@@ -11,7 +11,7 @@ class AppMeta {
             [
                     app: "redis-spring-boot-starter",
                     lang: 'jar',
-                    git: 'https://github.com/mogu1986/redis-spring-boot-starter.git'
+                    git: 'http://gitlab.top.mw/starter/redis-spring-boot-starter.git'
             ],
             [
                     app: "mw-parent",
