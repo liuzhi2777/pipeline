@@ -31,7 +31,8 @@ def call(Map map) {
 
         parameters {
             choice(name: 'BUILD_ENV', choices: 'dev\nsit\nuat', description: '请选择部署环境:')
-            choice(name: 'BUILD_BRANCH', choices: 'dev\nrelease', description: '请选择分支:')
+//            choice(name: 'BUILD_BRANCH', choices: 'dev\nrelease', description: '请选择分支:')
+            gitParameter(branchFilter: 'origin/(.*)', defaultValue: 'dev', name: 'BUILD_BRANCH', type: 'PT_BRANCH', description: '请选择分支:', useRepository: "${map.git}")
         }
 
         stages {
