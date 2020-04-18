@@ -1,4 +1,4 @@
-package com.sxh
+package com.mw
 
 class AppMeta {
 
