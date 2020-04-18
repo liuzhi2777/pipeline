@@ -143,13 +143,13 @@ def call(Map map) {
                 }
             }
 
-//            stage("K8S部署") {
-//                steps{
-//                    configFileProvider([configFile(fileId: "${params.BUILD_ENV}-config", variable: 'config')]) {
-//                        sh "docker run --rm harbor.jq.cn/library/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${IMAGE_NAME}"
-//                    }
-//                }
-//            }
+            stage("K8S部署") {
+                steps{
+                    configFileProvider([configFile(fileId: "${params.BUILD_ENV}-k8s-config", variable: 'config')]) {
+                        sh "docker run --rm bitnami/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${IMAGE_NAME}"
+                    }
+                }
+            }
 //
 //            stage('同步阿里云') {
 //                when {
