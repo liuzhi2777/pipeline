@@ -114,6 +114,13 @@ class AppMeta {
         map.put('javaOpts', opts)
     }
 
+    def getEnv(String env, String branch) {
+        if (env.equals("dev")) {
+            return branch
+        }
+        return "release"
+    }
+
     def getStr(String json) {
         def jsonSlpuer = new groovy.json.JsonSlurperClassic()
         def rs = jsonSlpuer.parseText(json)
