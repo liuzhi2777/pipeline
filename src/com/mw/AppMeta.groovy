@@ -14,9 +14,9 @@ class AppMeta {
                     git: 'https://github.com/mogu1986/redis-spring-boot-starter.git'
             ],
             [
-                    app: "framework-parent",
+                    app: "mw-parent",
                     lang: 'jar',
-                    git: 'https://github.com/mogu1986/framework-parent.git'
+                    git: 'http://gitlab.top.mw/mw-core/mw-parent.git'
             ],
             [
                     app: "distribution",

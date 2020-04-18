@@ -19,11 +19,10 @@ def call(Map map) {
         environment {
             APP = "${map.app}"
             LANG = "${map.lang}"
-            IS_SONAR = "${map.isSonar}"
         }
 
         parameters {
-            choice(name: 'BUILD_BRANCH', choices: 'master\ndev\nrelease', description: '请选择分支:')
+            choice(name: 'BUILD_BRANCH', choices: 'dev\nrelease', description: '请选择分支:')
         }
 
         stages {
