@@ -122,30 +122,24 @@ def call(Map map) {
                     }
                 }
             }
-//
-//            stage('推送镜像') {
-//                steps {
-//                    script {
-//                        def isBinaryConfig = isBinaryConfig(map)
-//                        def dockerfile = isBinaryConfig ? 'dockerfile_config' : 'dockerfile'
-//
-//                        configFileProvider([configFile(fileId: dockerfile, variable: 'DOCKER_FILE')]) {
-//                            docker.withRegistry("$HARBOR_URL", "harbor") {
-//                                def args = "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} "
-//                                if (isBinaryConfig) {
-//                                    args = args + "--build-arg CONFIG_PATH=config/${env.APP}"
-//                                }
-//                                log.debug("args = ${args}")
-//
-//                                def app = docker.build("$IMAGE_NAME", "${args} -f ${DOCKER_FILE} .")
-//                                app.push()
-//                            }
-//                        }
-//                        sh "docker rmi -f $IMAGE_NAME"
-//                    }
-//                }
-//            }
-//
+
+            stage('推送镜像') {
+                steps {
+                    script {
+                        configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
+                            docker.withRegistry("$HARBOR_URL", "harbor") {
+                                def args = "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} "
+                                log.debug("args = ${args}")
+
+                                def app = docker.build("$IMAGE_NAME", "${args} -f ${DOCKER_FILE} .")
+                                app.push()
+                            }
+                        }
+                        sh "docker rmi -f $IMAGE_NAME"
+                    }
+                }
+            }
+
 //            stage("K8S部署") {
 //                steps{
 //                    configFileProvider([configFile(fileId: "${params.BUILD_ENV}-config", variable: 'config')]) {
