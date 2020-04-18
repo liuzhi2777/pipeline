@@ -131,7 +131,6 @@ def call(Map map) {
                         configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
                             docker.withRegistry("$HARBOR_URL", "harbor") {
                                 sh "pwd"
-                                sh "sleep 1000s"
                                 def args = "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP}"
                                 log.debug("args = ${args}")
 
