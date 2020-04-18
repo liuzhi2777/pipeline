@@ -7,7 +7,7 @@ def call(Map map) {
     pipeline {
 
         agent {
-            label 'swarm'
+            label 'any'
         }
 
         options {
