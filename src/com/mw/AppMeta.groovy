@@ -6,7 +6,7 @@ class AppMeta {
             [
                     app: "feign-spring-boot-starter",
                     lang: 'jar',
-                    git: 'https://github.com/mogu1986/feign-spring-boot-starter.git'
+                    git: 'http://gitlab.top.mw/starter/feign-spring-boot-starter.git'
             ],
             [
                     app: "redis-spring-boot-starter",
