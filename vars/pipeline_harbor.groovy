@@ -46,26 +46,6 @@ def call(Map map) {
                 }
             }
 
-
-            stage('同步腾讯云') {
-                steps {
-                    script {
-                        env.QCLOUD_IMAGE_NAME = "ccr.ccs.tencentyun.com/sxhharbor/${params.app}:${params.imageId}"
-
-                        log.debug("腾讯云镜像ID = ${env.QCLOUD_IMAGE_NAME}")
-
-                        docker.withRegistry("https://ccr.ccs.tencentyun.com/sxhharbor", "harbor_tencent") {
-                            sh "docker tag $IMAGE_NAME $QCLOUD_IMAGE_NAME"
-                            sh "docker push $QCLOUD_IMAGE_NAME"
-                        }
-                        sh "docker rmi -f $QCLOUD_IMAGE_NAME"
-                        sh "docker rmi -f $ALIYUN_IMAGE_NAME"
-                        sh "docker rmi -f $IMAGE_NAME"
-
-                    }
-                }
-            }
-
         }
 
         post {

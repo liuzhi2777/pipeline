@@ -2,7 +2,7 @@ def call(String app="${JOB_NAME}", String lang = "${JOB_NAME}") {
 
     log.debug("app = ${app}")
 
-    def params = new com.sxh.AppMeta().getMeta(app)
+    def params = new com.mw.AppMeta().getMeta(app)
     
     if (params != null) {
         lang = params.get('lang')
@@ -23,14 +23,8 @@ def call(String app="${JOB_NAME}", String lang = "${JOB_NAME}") {
         case "nodejs":
             pipeline_nodejs(params)
             break
-        case "html":
-            pipeline_html(params)
-            break
         case "aliyun-harbor":
             pipeline_harbor(params)
-            break
-        case "h5web":
-            pipeline_h5web(params)
             break
         case "release":
             pipeline_release(params)
@@ -38,39 +32,12 @@ def call(String app="${JOB_NAME}", String lang = "${JOB_NAME}") {
         case "release_k8s":
             pipeline_release_k8s(params)
             break
-        case "aliyun-sync-war":
-            pipeline_sync_war(params)
-            break
-        case "aliyun-sync-war-wx":
-            pipeline_sync_war_wx(params)
-            break
-        case "aliyun-sync-war-h5web":
-            pipeline_sync_war_h5web(params)
-            break
         case "aliyun-harbor-nodejs":
             pipeline_sync_nodejs(params)
             break
         case "aliyun-harbor-html":
             pipeline_sync_html(params)
             break
-        case "aliyun2qcloud":
-            pipeline_aliyun2qcloud(params)
-            break
-        case "qcloud-sync-war":
-            pipeline_qcloud_sync_war(params)
-            break
-        case "qcloud-sync-war-wx":
-            pipeline_qcloud_sync_war_wx(params)
-            break
-        case "qcloud-sync-war-h5web":
-            pipeline_qcloud_sync_war_h5web(params)
-            break
-        case "qcloud-release":
-            pipeline_qcloud_release(params)
-            break
-        case "qcloud_release_k8s":
-            pipeline_qcloud_release_k8s(params)
-            break            
         default:
             println "nice to meet you"
     }

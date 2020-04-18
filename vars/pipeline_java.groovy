@@ -60,7 +60,7 @@ def call(Map map) {
                         log.debug("部署环境: ${params.BUILD_ENV}")
                         log.debug("选择的分支: ${params.BUILD_BRANCH}")
                         log.debug("App 元数据: ${map}")
-                        def br = new com.sxh.AppMeta().getEnv("${params.BUILD_ENV}", "${params.BUILD_BRANCH}")
+                        def br = new com.mw.AppMeta().getEnv("${params.BUILD_ENV}", "${params.BUILD_BRANCH}")
                         log.debug("br: ${br}")
                         git branch: br, credentialsId: 'gitlab', url: map.git
                     }
