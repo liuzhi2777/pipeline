@@ -26,9 +26,6 @@ def call(String app="${JOB_NAME}", String lang = "${JOB_NAME}") {
         case "aliyun-harbor":
             pipeline_harbor(params)
             break
-        case "release":
-            pipeline_release(params)
-            break
         case "release_k8s":
             pipeline_release_k8s(params)
             break
