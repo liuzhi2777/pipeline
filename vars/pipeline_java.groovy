@@ -6,7 +6,9 @@
 def call(Map map) {
     pipeline {
 
-        agent any
+        agent {
+            label 'swarm'
+        }
 
         options {
             buildDiscarder(logRotator(numToKeepStr: '50'))
