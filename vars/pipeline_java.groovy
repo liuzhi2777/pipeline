@@ -77,23 +77,23 @@ def call(Map map) {
                     }
                 }
             }
-//
-//            stage('Sonar分析') {
-//                when {
-//                    expression {
-//                        return !isDev() && false
-//                    }
-//                }
-//                steps {
-//                    script {
-//                        withSonarQubeEnv('sonar'){
-//                            docker.image('mercuriete/sonar-scanner:3.2.0.1227').inside('-v /root/.sonar:/root/.sonar') {
-//                                sh "sonar-scanner -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_AUTH_TOKEN}  -Dsonar.projectKey=${env.APP} -Dsonar.projectName=${env.APP} -Dsonar.sources=. -Dsonar.java.binaries=."
-//                            }
-//                        }
-//                    }
-//                }
-//            }
+
+            stage('Sonar分析') {
+                when {
+                    expression {
+                        return isDev()
+                    }
+                }
+                steps {
+                    script {
+                        withSonarQubeEnv('sonar'){
+                            docker.image('mercuriete/sonar-scanner:3.2.0.1227').inside('-v /root/.sonar:/root/.sonar') {
+                                sh "sonar-scanner -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_AUTH_TOKEN}  -Dsonar.projectKey=${env.APP} -Dsonar.projectName=${env.APP} -Dsonar.sources=. -Dsonar.java.binaries=."
+                            }
+                        }
+                    }
+                }
+            }
 
             stage('单元测试') {
                 when {

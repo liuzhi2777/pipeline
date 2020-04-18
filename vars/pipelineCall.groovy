@@ -11,6 +11,8 @@ def call(String app="${JOB_NAME}", String lang = "${JOB_NAME}") {
 
     log.debug("lang : ${lang}")
 
+    putSonar(params)
+
     switch (lang) {
         case "jar":
             pipeline_jar(params)
