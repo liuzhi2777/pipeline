@@ -61,7 +61,7 @@ def call(Map map) {
                 steps {
                     script {
                         mvn { settings ->
-                            def cmd = isDev() ? 'deploy' : 'deploy'
+                            def cmd = isDev() ? 'package' : 'deploy'
                             sh "mvn -s ${settings} clean ${cmd} -B -Dfile.encoding=UTF-8 -Dmaven.test.skip=true -U"
                         }
                     }
@@ -84,44 +84,44 @@ def call(Map map) {
 //                    }
 //                }
 //            }
-//
-//            stage('单元测试') {
-//                when {
-//                    expression {
-//                        return false
-//                    }
-//                }
-//                steps {
-//                    allure([
-//                        disabled: false,
-//                        includeProperties: false,
-//                        jdk: '',
-//                        reportBuildPolicy: 'ALWAYS',
-//                        results: [[path: 'output/allure']]
-//                    ])
-//                }
-//            }
-//
-//            stage('自动化测试') {
-//                failFast true
-//                parallel {
-//                    stage('UI自动化测试') {
-//                        steps {
-//                            echo "并行1"
-//                        }
-//                    }
-//                    stage('性能自动化测试') {
-//                        steps {
-//                            echo "并行二"
-//                        }
-//                    }
-//                    stage('接口自动化测试') {
-//                        steps {
-//                            echo "In stage Nested 1 within Branch C"
-//                        }
-//                    }
-//                }
-//            }
+
+            stage('单元测试') {
+                when {
+                    expression {
+                        return false
+                    }
+                }
+                steps {
+                    allure([
+                        disabled: false,
+                        includeProperties: false,
+                        jdk: '',
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'output/allure']]
+                    ])
+                }
+            }
+
+            stage('自动化测试') {
+                failFast true
+                parallel {
+                    stage('UI自动化测试') {
+                        steps {
+                            echo "并行1"
+                        }
+                    }
+                    stage('性能自动化测试') {
+                        steps {
+                            echo "并行二"
+                        }
+                    }
+                    stage('接口自动化测试') {
+                        steps {
+                            echo "In stage Nested 1 within Branch C"
+                        }
+                    }
+                }
+            }
 //
 //            stage('推送镜像') {
 //                steps {
