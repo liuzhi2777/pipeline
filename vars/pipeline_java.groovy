@@ -22,7 +22,7 @@ def call(Map map) {
             ARTIFACT = "${map.artifact}"
             NS = "${map.namespace}"
 
-            PORTAL_TOKEN = credentials("portal")
+//            PORTAL_TOKEN = credentials("portal")
 
             IMAGE_NAME = "${HARBOR}/library/${JOB_NAME}:${BUILD_ID}"
         }
