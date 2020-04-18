@@ -39,12 +39,18 @@ def call(Map map) {
             stage('认证') {
                 when {
                     anyOf {
-                        environment name: 'BUILD_ENV', value: 'test'
+                        environment name: 'BUILD_ENV', value: 'dev'
                         environment name: 'BUILD_ENV', value: 'uat'
                     }
                 }
                 steps {
                     auth()
+                }
+            }
+
+            stage('清空目录') {
+                steps {
+                    deleteDir()
                 }
             }
 
@@ -130,11 +136,7 @@ def call(Map map) {
                     script {
                         configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
                             docker.withRegistry("$HARBOR_URL", "harbor") {
-                                sh "pwd"
-                                def args = "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP}"
-                                log.debug("args = ${args}")
-
-                                def app = docker.build("$IMAGE_NAME", "${args} -f ${DOCKER_FILE} .")
+                                def app = docker.build("$IMAGE_NAME", "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} -f ${DOCKER_FILE} .")
                                 app.push()
                             }
                         }
@@ -150,30 +152,26 @@ def call(Map map) {
                     }
                 }
             }
-//
-//            stage('同步阿里云') {
-//                when {
-//                    expression {
-//                        return isUat()
-//                    }
-//                }
-//                steps {
-//                    script {
-//                        def response = httpRequest(
-//                            url: "${env.JENKINS_URL}/view/PRD/job/aliyun-harbor/buildWithParameters?token=${env.PORTAL_TOKEN}&app=${env.APP}&imageId=${BUILD_ID}",
-//                            httpMode: 'GET'
-//                        )
-//                        println('Status: '+response.status)
-//                        println('Response: '+response.content)
-//                    }
-//                }
-//            }
+
+            stage('同步阿里云') {
+                when {
+                    expression {
+                        return isUat()
+                    }
+                }
+                steps {
+                    script {
+                        def response = httpRequest(
+                            url: "${env.JENKINS_URL}/view/PRD/job/aliyun-harbor/buildWithParameters?token=${env.PORTAL_TOKEN}&app=${env.APP}&imageId=${BUILD_ID}",
+                            httpMode: 'GET'
+                        )
+                        println('Status: '+response.status)
+                        println('Response: '+response.content)
+                    }
+                }
+            }
 
         }
-
-//        post {
-//            always {cleanWs()}
-//        }
 
     }
 }
