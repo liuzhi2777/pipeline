@@ -57,16 +57,16 @@ def call(Map map) {
                 }
             }
 
-//            stage('编译') {
-//                steps {
-//                    script {
-//                        mvn { settings ->
-//                            def cmd = isDev() ? 'deploy' : 'deploy'
-//                            sh "mvn -s ${settings} clean ${cmd} -B -Dfile.encoding=UTF-8 -Dmaven.test.skip=true -U"
-//                        }
-//                    }
-//                }
-//            }
+            stage('编译') {
+                steps {
+                    script {
+                        mvn { settings ->
+                            def cmd = isDev() ? 'deploy' : 'deploy'
+                            sh "mvn -s ${settings} clean ${cmd} -B -Dfile.encoding=UTF-8 -Dmaven.test.skip=true -U"
+                        }
+                    }
+                }
+            }
 //
 //            stage('Sonar分析') {
 //                when {
