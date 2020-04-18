@@ -128,7 +128,7 @@ def call(Map map) {
                     script {
                         configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
                             docker.withRegistry("$HARBOR_URL", "harbor") {
-                                def args = "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} "
+                                def args = "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP}"
                                 log.debug("args = ${args}")
 
                                 def app = docker.build("$IMAGE_NAME", "${args} -f ${DOCKER_FILE} .")
