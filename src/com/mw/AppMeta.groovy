@@ -18,10 +18,20 @@ class AppMeta {
                     lang: 'jar',
                     git: 'http://gitlab.top.mw/mw-core/mw-parent.git'
             ],
-                        [
+            [
                     app: "mw-core-base",
                     lang: 'jar',
                     git: 'http://gitlab.top.mw/mw-core/mw-core-base.git'
+            ],
+            [
+                    app: "mqcenter",
+                    lang: 'jar',
+                    git: 'http://gitlab.top.mw/base/mqcenter-spring-boot-starter.git'
+            ],
+            [
+                    app: "public-pom",
+                    lang: 'jar',
+                    git: 'http://gitlab.top.mw/base/public-pom.git'
             ],
             [
                     app: "distribution",
