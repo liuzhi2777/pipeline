@@ -36,7 +36,7 @@ class AppMeta {
             [
                     app: "distribution",
                     lang: 'java',
-                    namespace: 'dev',
+                    namespace: 'default',
                     artifact: 'distribution-service/target/distribution-service.jar',
                     git: 'http://gitlab.top.mw/distribution/distribution.git'
             ],
