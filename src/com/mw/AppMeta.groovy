@@ -18,6 +18,11 @@ class AppMeta {
                     lang: 'jar',
                     git: 'http://gitlab.top.mw/mw-core/mw-parent.git'
             ],
+                        [
+                    app: "mw-core-base",
+                    lang: 'jar',
+                    git: 'http://gitlab.top.mw/mw-core/mw-core-base.git'
+            ],
             [
                     app: "distribution",
                     lang: 'java',
