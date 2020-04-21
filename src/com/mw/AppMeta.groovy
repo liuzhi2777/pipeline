@@ -363,6 +363,15 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/mw-logistics/logistics-service.git'
             ],
 			
+			//  mw-microshop
+		    [
+                    app: "mw-microshop-bm",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'mw-microshop-bm/target/mw-microshop-bm.jar',
+                    git: 'http://gitlab.top.mw/mw-microshop/mw-microshop.git'
+            ],
+			
             //  portal-ui
             [
                     app: "portal-ui",
