@@ -390,16 +390,15 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/mw-microshop/mw-microshop.git'
             ],
 			
-            //  portal-ui
+            //  front
             [
-                    app: "portal-ui",
-                    namespace: "frame",
+                    app: "surmax-admin-vue2",
+                    namespace: "dev",
                     lang: 'nodejs',
                     group: 'vue',
                     appPort: 80,
                     artifact: 'dist',
-                    git: 'http://gitlab.shixhlocal.com/frame/portal-ui.git',
-                    run: 'docker'
+                    git: 'http://gitlab.top.mw/front/surmax-admin-vue.git'
             ]
     ]
 

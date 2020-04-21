@@ -20,7 +20,7 @@ def call(Map map) {
             APP = "${map.app}"
             LANG = "${map.lang}"
 
-            PORTAL_TOKEN = credentials("portal")
+//            PORTAL_TOKEN = credentials("portal")
 
             IMAGE_NAME = "${HARBOR}/library/${JOB_NAME}:${BUILD_ID}"
         }
@@ -62,9 +62,9 @@ def call(Map map) {
             stage('拉取配置') {
                 steps {
                     script {
-                        sh "git clone -b ${params.BUILD_ENV} http://gitlab.shixhlocal.com/devops/config.git sxh_config"
-                        sh "mv sxh_config/${env.APP}/nginx.conf ./"
-                        sh "rm -rf sxh_config"
+                        sh "git clone -b ${params.BUILD_ENV} http://gitlab.top.mw/devops/config.git mw_config"
+                        sh "mv mw_config/${env.APP}/nginx.conf ./"
+                        sh "rm -rf mw_config"
                         sh "ls -lh"
                     }
                 }
@@ -73,9 +73,8 @@ def call(Map map) {
             stage('编译') {
                 steps {
                     nodejs('NODEJS') {
-                        sh "npm install --registry=http://10.50.4.3:4873 sxh-vue-common --save"
-                        sh "npm install"
-                        sh "npm run ${params.BUILD_ENV}"
+                        sh "yarn install"
+                        sh "yarn run build --mode ${params.BUILD_ENV}"
                         sh "ls -lh"
                     }
                 }
@@ -95,33 +94,33 @@ def call(Map map) {
                 }
             }
 
-            stage("Ansible部署"){
-                steps{
-                    script{
-                        docker.image('harbor.shixhlocal.com/library/ansible:centos7').inside() {
-                            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
-                                      extensions: [], submoduleCfg: [],
-                                      userRemoteConfigs: [[credentialsId: 'gitlab', url: 'http://gitlab.shixhlocal.com/devops/jenkins-ansible-playbooks.git']]])
-                            ansiColor('xterm') {
-                                ansiblePlaybook(
-                                    playbook: "playbook_${env.LANG}.yml",
-                                    inventory: "hosts/${params.BUILD_ENV}.ini",
-                                    hostKeyChecking: false,
-                                    colorized: true,
-                                    extraVars: [
-                                        lang: "${env.LANG}",
-                                        app: [value: "${env.APP}", hidden: false],
-                                        env: [value: "${params.BUILD_ENV}", hidden: false],
-                                        portArgs: "${map.portArgs}",
-                                        run: "${map.run}",
-                                        artifact: "${env.IMAGE_NAME}"
-                                    ]
-                                )
-                            }
-                        }
-                    }
-                }
-            }
+//            stage("Ansible部署"){
+//                steps{
+//                    script{
+//                        docker.image('harbor.shixhlocal.com/library/ansible:centos7').inside() {
+//                            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
+//                                      extensions: [], submoduleCfg: [],
+//                                      userRemoteConfigs: [[credentialsId: 'gitlab', url: 'http://gitlab.shixhlocal.com/devops/jenkins-ansible-playbooks.git']]])
+//                            ansiColor('xterm') {
+//                                ansiblePlaybook(
+//                                    playbook: "playbook_${env.LANG}.yml",
+//                                    inventory: "hosts/${params.BUILD_ENV}.ini",
+//                                    hostKeyChecking: false,
+//                                    colorized: true,
+//                                    extraVars: [
+//                                        lang: "${env.LANG}",
+//                                        app: [value: "${env.APP}", hidden: false],
+//                                        env: [value: "${params.BUILD_ENV}", hidden: false],
+//                                        portArgs: "${map.portArgs}",
+//                                        run: "${map.run}",
+//                                        artifact: "${env.IMAGE_NAME}"
+//                                    ]
+//                                )
+//                            }
+//                        }
+//                    }
+//                }
+//            }
 
             stage('同步阿里云') {
                 when {
