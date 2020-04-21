@@ -347,6 +347,22 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/international-business/international.git'
             ],
 			
+			//  mw-logistics
+		    [
+                    app: "logistics-admin-web",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'logistics-admin-web/target/logistics-admin-web-1.0.0-SNAPSHOT.jar',
+                    git: 'http://gitlab.top.mw/mw-logistics/logistics-admin.git'
+            ],
+		    [
+                    app: "logistics-web",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'logistics-web/target/logistics-web-1.0.0-SNAPSHOT.jar',
+                    git: 'http://gitlab.top.mw/mw-logistics/logistics-service.git'
+            ],
+			
             //  portal-ui
             [
                     app: "portal-ui",
