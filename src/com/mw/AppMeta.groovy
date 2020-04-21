@@ -41,12 +41,28 @@ class AppMeta {
                     artifact: 'distribution-service/target/distribution-service.jar',
                     git: 'http://gitlab.top.mw/distribution/distribution.git'
             ],
+			
+			//  production
             [
                     app: "production-base",
                     lang: 'java',
                     namespace: 'dev',
                     artifact: 'production-base-service-provider/target/production-base-service.jar',
                     git: 'http://gitlab.top.mw/production-management/production-base.git'
+            ],
+            [
+                    app: "production-task",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'production-task-service-provider/target/production-task-service.jar',
+                    git: 'http://gitlab.top.mw/production-management/production-task.git'
+            ],
+            [
+                    app: "mrp",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'mrp-service-provider/target/mrp-service.jar',
+                    git: 'http://gitlab.top.mw/production-management/mrp.git'
             ],
 			
             //  base
