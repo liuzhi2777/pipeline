@@ -34,6 +34,8 @@ class AppMeta {
                     lang: 'jar',
                     git: 'http://gitlab.top.mw/base/public-pom.git'
             ],
+            
+            //  distribution
             [
                     app: "distribution",
                     lang: 'java',
