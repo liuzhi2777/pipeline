@@ -54,6 +54,252 @@ class AppMeta {
                     artifact: 'production-base-service-provider/target/production-base-service.jar',
                     git: 'http://gitlab.top.mw/production-management/production-base.git'
             ],
+			
+			//  account
+			[
+                    app: "user-account",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'user-account-service/target/user-account-service.jar',
+                    git: 'http://gitlab.top.mw/user-account/user-account.git'
+            ],
+			
+			//  admincenter
+			[
+                    app: "admincenter-approval",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'admin-center-approval-service/target/admincenter-approval-server.jar',
+                    git: 'http://gitlab.top.mw/adminCenter/pay-approval-center.git'
+            ],
+			[
+                    app: "admincenter-intangible-assets",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'admincenter-intangible-assets-service/target/admincenter-intangible-assets-service.jar',
+                    git: 'http://gitlab.top.mw/adminCenter/intangibleAssets.git'
+            ],
+			[
+                    app: "admincenter-approval-manage",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'admincenter-approval-manage-service/target/admincenter-approval-manage-service.jar',
+                    git: 'http://gitlab.top.mw/adminCenter/approval-manage.git'
+            ],
+			
+			//  bill
+		    [
+                    app: "billcenter",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'bill-center-service/target/bill-center-service.jar',
+                    git: 'http://gitlab.top.mw/bill-center/bill-center.git'
+            ],
+			
+			//  finance
+		    [
+                    app: "finance",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-service/target/finance-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-base.git'
+            ],
+		    [
+                    app: "finance-attribute",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-attribute-service/target/finance-attribute-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-attribute.git'
+            ],
+		    [
+                    app: "finance-cashbank",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-cashbank-service/target/finance-cashbank-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-cashBank.git'
+            ],
+		    [
+                    app: "finance-costing",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-costing-service/target/finance-costing-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-costing.git'
+            ],
+		    [
+                    app: "finance-invoice",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-invoice-service/target/finance-invoice-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-invoice.git'
+            ],
+		    [
+                    app: "finance-profitallot",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-profitallot-service/target/finance-profitallot-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-profitallot.git'
+            ],
+		    [
+                    app: "finance-tax",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-tax-service/target/finance-tax-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-tax.git'
+            ],
+		    [
+                    app: "finance-cashier",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-cashier-service/target/finance-cashier-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-cashier.git'
+            ],
+		    [
+                    app: "finance-obligation",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-obligation-service/target/finance-obligation-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-obligation.git'
+            ],
+		    [
+                    app: "finance-processproject",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-profitallot-service/target/finance-profitallot-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-profitAllot.git'
+            ],
+		    [
+                    app: "finance-settleaccounts",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-settleaccounts-service/target/finance-settleaccounts-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-settleaccounts.git'
+            ],
+			
+			//  hr
+		    [
+                    app: "hr-base",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'hr-base-service-provider/target/hr-base-service-provider.jar',
+                    git: 'http://gitlab.top.mw/hr/hr-base.git'
+            ],
+		    [
+                    app: "hr-assess",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'hr-assess-service-provider/target/hr-assess-service-provider.jar',
+                    git: 'http://gitlab.top.mw/hr/hr-assess.git'
+            ],
+		    [
+                    app: "hr-arrangework",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'hr-arrangework-service-provider/target/hr-arrangework-service-provider.jar',
+                    git: 'http://gitlab.top.mw/hr/hr-arrangework.git'
+            ],
+		    [
+                    app: "hr-business-events",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'hr-business-events-service-provider/target/hr-business-events-service-provider.jar',
+                    git: 'http://gitlab.top.mw/hr/business-events.git'
+            ],
+		    
+			//  invoicing
+		    [
+                    app: "invoicing-base",
+                    lang: 'jar',
+                    git: 'http://gitlab.top.mw/jinxiao/java/invoicing-base.git'
+            ],
+		    [
+                    app: "invoicing-merchandise",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'invoicing-web-merchandise/target/invoicing-web-merchandise.jar',
+                    git: 'http://gitlab.top.mw/jinxiao/java/invoicing-merchandise-provider.git'
+            ],
+		    [
+                    app: "invoicing-order",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'invoicing-web-order/target/invoicing-web-order.jar',
+                    git: 'http://gitlab.top.mw/jinxiao/java/invoicing-order-provider.git'
+            ],
+		    [
+                    app: "invoicing-policy",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'invoicing-web-policy/target/invoicing-web-policy.jar',
+                    git: 'http://gitlab.top.mw/jinxiao/java/invoicing-policy-provider.git'
+            ],
+		    [
+                    app: "invoicing-simple",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'invoicing-web-simple/target/invoicing-web-simple.jar',
+                    git: 'http://gitlab.top.mw/jinxiao/java/invoicing-simple-provider.git'
+            ],
+			
+			//  person-plat
+		    [
+                    app: "person-plat-base",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'person-plat-base-service/target/person-plat-base-service.jar',
+                    git: 'http://gitlab.top.mw/person-plat/person-plat-base.git'
+            ],
+			
+			//  storage
+		    [
+                    app: "storage-input",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'storage-stockInput-service-provider/target/storage-input-service.jar',
+                    git: 'http://gitlab.top.mw/storage/storage-stockInput.git'
+            ],
+		    [
+                    app: "barcode",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'barcode-service-provider/target/barcode-service.jar',
+                    git: 'http://gitlab.top.mw/storage/barcode.git'
+            ],
+		    [
+                    app: "entrust-material",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'sentrust-material-service-provider/target/entrust-material-service.jar',
+                    git: 'http://gitlab.top.mw/storage/entrust-material.git'
+            ],
+		    [
+                    app: "mw-storage-web",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'mw-storage-web/target/mw-storage-web.jar',
+                    git: 'http://gitlab.top.mw/mw-surmax/mw-storage.git'
+            ],
+		    [
+                    app: "storage-out",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'storage-out-service-provider/target/storage-out-service-provider.jar',
+                    git: 'http://gitlab.top.mw/storage/storage-stockInput.git'
+            ],
+		    [
+                    app: "storage-stock",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'storage-stock-service-provider/target/storage-stock-service.jar',
+                    git: 'http://gitlab.top.mw/storage/storage-stock.git'
+            ],
+		    [
+                    app: "storage-transport",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'storage-transport-service-provider/target/storage-transport-service-provider.jar',
+                    git: 'http://gitlab.top.mw/storage/storage-transport.git'
+            ],
+			
             //  portal-ui
             [
                     app: "portal-ui",
