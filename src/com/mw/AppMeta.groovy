@@ -47,6 +47,13 @@ class AppMeta {
                     artifact: 'point-service-provider/target/point-service-provider.jar',
                     git: 'http://gitlab.top.mw/salepoint/point.git'
             ],
+            [
+                    app: "production-base",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'production-base-service-provider/target/production-base-service.jar',
+                    git: 'http://gitlab.top.mw/production-management/production-base.git'
+            ],
             //  portal-ui
             [
                     app: "portal-ui",
