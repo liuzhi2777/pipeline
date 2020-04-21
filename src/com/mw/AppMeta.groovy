@@ -3,6 +3,7 @@ package com.mw
 class AppMeta {
 
     def meta = [
+	        //  jar
             [
                     app: "feign-spring-boot-starter",
                     lang: 'jar',
@@ -41,18 +42,55 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/distribution/distribution.git'
             ],
             [
-                    app: "point",
-                    lang: 'java',
-                    namespace: 'dev',
-                    artifact: 'point-service-provider/target/point-service-provider.jar',
-                    git: 'http://gitlab.top.mw/salepoint/point.git'
-            ],
-            [
                     app: "production-base",
                     lang: 'java',
                     namespace: 'dev',
                     artifact: 'production-base-service-provider/target/production-base-service.jar',
                     git: 'http://gitlab.top.mw/production-management/production-base.git'
+            ],
+			
+			//  base
+            [
+                    app: "base",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'base-service/target/base-service.jar',
+                    git: 'http://gitlab.top.mw/base/base.git'
+            ],
+            [
+                    app: "gateway",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'gateway-service/target/gateway-service.jar',
+                    git: 'http://gitlab.top.mw/base/gateway.git'
+            ],
+            [
+                    app: "job",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'job-service/target/job-service.jar',
+                    git: 'http://gitlab.top.mw/base/job.git'
+            ],
+            [
+                    app: "msgcenter",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'msgcenter-service/target/msgcenter-service.jar',
+                    git: 'http://gitlab.top.mw/base/msgcenter.git'
+            ],
+            [
+                    app: "businessmsg",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'businessmsg-service/target/businessmsg-service.jar',
+                    git: 'http://gitlab.top.mw/base/businessmsg.git'
+            ],
+            [
+                    app: "point",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'point-service-provider/target/point-service-provider.jar',
+                    git: 'http://gitlab.top.mw/salepoint/point.git'
             ],
 			
 			//  account
