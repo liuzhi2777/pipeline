@@ -3,7 +3,7 @@ package com.mw
 class AppMeta {
 
     def meta = [
-	        //  jar
+            //  jar
             [
                     app: "feign-spring-boot-starter",
                     lang: 'jar',
