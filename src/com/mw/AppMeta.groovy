@@ -44,7 +44,7 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/distribution/distribution.git'
             ],
 			
-			//  production
+            //  production
             [
                     app: "production-base",
                     lang: 'java',
