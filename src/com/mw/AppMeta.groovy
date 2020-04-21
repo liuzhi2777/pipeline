@@ -339,7 +339,7 @@ class AppMeta {
                     lang: 'java',
                     namespace: 'dev',
                     artifact: 'storage-out-service-provider/target/storage-out-service-provider.jar',
-                    git: 'http://gitlab.top.mw/storage/storage-stockInput.git'
+                    git: 'http://gitlab.top.mw/storage/storage-stockOut.git'
             ],
 		    [
                     app: "storage-stock",
