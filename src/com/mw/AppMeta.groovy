@@ -338,6 +338,15 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/storage/storage-transport.git'
             ],
 			
+			//  international			
+		    [
+                    app: "international",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'international-business-service-provider/target/international-business-service-provider.jar',
+                    git: 'http://gitlab.top.mw/international-business/international.git'
+            ],
+			
             //  portal-ui
             [
                     app: "portal-ui",
