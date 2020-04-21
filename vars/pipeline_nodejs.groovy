@@ -26,8 +26,8 @@ def call(Map map) {
         }
 
         parameters {
+            choice(name: 'BUILD_ENV', choices: 'dev\ntest\nuat', description: '请选择部署环境:')
             choice(name: 'BUILD_BRANCH', choices: 'dev\nrelease', description: '请选择分支:')
-            choice(name: 'BUILD_ENV', choices: 'mit\nsit\nuat', description: '请选择部署环境:')
         }
 
         stages {
