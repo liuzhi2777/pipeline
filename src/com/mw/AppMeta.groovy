@@ -49,7 +49,7 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/production-management/production-base.git'
             ],
 			
-			//  base
+            //  base
             [
                     app: "base",
                     lang: 'java',
@@ -93,8 +93,8 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/salepoint/point.git'
             ],
 			
-			//  account
-			[
+            //  account
+            [
                     app: "user-account",
                     lang: 'java',
                     namespace: 'dev',
@@ -102,8 +102,8 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/user-account/user-account.git'
             ],
 			
-			//  admincenter
-			[
+            //  admincenter
+            [
                     app: "admincenter-approval",
                     lang: 'java',
                     namespace: 'dev',
