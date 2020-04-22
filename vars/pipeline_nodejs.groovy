@@ -94,33 +94,13 @@ def call(Map map) {
                 }
             }
 
-//            stage("Ansible部署"){
-//                steps{
-//                    script{
-//                        docker.image('harbor.shixhlocal.com/library/ansible:centos7').inside() {
-//                            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
-//                                      extensions: [], submoduleCfg: [],
-//                                      userRemoteConfigs: [[credentialsId: 'gitlab', url: 'http://gitlab.shixhlocal.com/devops/jenkins-ansible-playbooks.git']]])
-//                            ansiColor('xterm') {
-//                                ansiblePlaybook(
-//                                    playbook: "playbook_${env.LANG}.yml",
-//                                    inventory: "hosts/${params.BUILD_ENV}.ini",
-//                                    hostKeyChecking: false,
-//                                    colorized: true,
-//                                    extraVars: [
-//                                        lang: "${env.LANG}",
-//                                        app: [value: "${env.APP}", hidden: false],
-//                                        env: [value: "${params.BUILD_ENV}", hidden: false],
-//                                        portArgs: "${map.portArgs}",
-//                                        run: "${map.run}",
-//                                        artifact: "${env.IMAGE_NAME}"
-//                                    ]
-//                                )
-//                            }
-//                        }
-//                    }
-//                }
-//            }
+            stage("K8S部署") {
+                steps{
+                    configFileProvider([configFile(fileId: "${params.BUILD_ENV}-k8s-config", variable: 'config')]) {
+                        sh "docker run --rm -v ${config}:/.kube/config bitnami/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${IMAGE_NAME}"
+                    }
+                }
+            }
 
             stage('同步阿里云') {
                 when {
