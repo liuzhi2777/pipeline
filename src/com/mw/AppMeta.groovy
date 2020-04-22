@@ -324,7 +324,7 @@ class AppMeta {
                     app: "entrust-material",
                     lang: 'java',
                     namespace: 'dev',
-                    artifact: 'sentrust-material-service-provider/target/entrust-material-service.jar',
+                    artifact: 'entrust-material-service-provider/target/entrust-material-service.jar',
                     git: 'http://gitlab.top.mw/storage/entrust-material.git'
             ],
 		    [
