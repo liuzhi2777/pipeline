@@ -395,9 +395,6 @@ class AppMeta {
                     app: "surmax-admin-vue2",
                     namespace: "dev",
                     lang: 'nodejs',
-                    group: 'vue',
-                    appPort: 80,
-                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/surmax-admin-vue.git'
             ]
     ]
