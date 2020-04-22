@@ -206,8 +206,8 @@ class AppMeta {
                     app: "finance-cashier",
                     lang: 'java',
                     namespace: 'dev',
-                    artifact: 'finance-cashier-service/target/finance-cashier-service.jar',
-                    git: 'http://gitlab.top.mw/finance/finance-cashier.git'
+                    artifact: 'finance-cashierAccount-service/target/finance-cashierAccount-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-cashierAccount.git'
             ],
 		    [
                     app: "finance-obligation",
