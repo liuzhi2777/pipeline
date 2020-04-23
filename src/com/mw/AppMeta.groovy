@@ -230,6 +230,13 @@ class AppMeta {
                     artifact: 'finance-settleaccounts-service/target/finance-settleaccounts-service.jar',
                     git: 'http://gitlab.top.mw/finance/finance-settleaccounts.git'
             ],
+		    [
+                    app: "finance-pay-receive",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'finance-pay-receive-service/target/finance-pay-receive-service.jar',
+                    git: 'http://gitlab.top.mw/finance/finance-paymentRreceipts.git'
+            ],
 			
 			//  hr
 		    [
