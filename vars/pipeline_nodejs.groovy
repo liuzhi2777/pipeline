@@ -20,6 +20,7 @@ def call(Map map) {
             APP = "${map.app}"
             LANG = "${map.lang}"
 
+            ARTIFACT = "${map.artifact}"
 //            PORTAL_TOKEN = credentials("portal")
 
             IMAGE_NAME = "${HARBOR}/library/${JOB_NAME}:${BUILD_ID}"
@@ -85,7 +86,7 @@ def call(Map map) {
                     script {
                         docker.withRegistry("$HARBOR_URL", "harbor") {
                             configFileProvider([configFile(fileId: 'dockerfile_nodejs', variable: 'DOCKER_FILE')]) {
-                                def app = docker.build("$IMAGE_NAME", "--no-cache -f ${DOCKER_FILE} .")
+                                def app = docker.build("$IMAGE_NAME", "--no-cache --build-arg ARTIFACT_NAME=${ARTIFACT} -f ${DOCKER_FILE} .")
                                 app.push()
                             }
                         }

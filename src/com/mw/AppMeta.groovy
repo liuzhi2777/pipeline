@@ -402,54 +402,63 @@ class AppMeta {
                     app: "surmax-admin-vue",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/surmax-admin-vue.git'
             ],
             [
                     app: "surmax-manager-vue",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/surmax-manager-vue.git'
             ],
             [
                     app: "components",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/components.git'
             ],
             [
                     app: "logistics-admin-vue",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/logistics-admin-vue.git'
             ],
             [
                     app: "logistics-h5-vue",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/logistics-h5-vue.git'
             ],
             [
                     app: "mw-login-vue",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/mw-login-vue.git'
             ],
             [
                     app: "pos-manager-vue",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/pos-manager-vue.git'
             ],
             [
                     app: "supply-manager-vue",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'dist',
                     git: 'http://gitlab.top.mw/front/supply-manager-vue.git'
             ],
             [
                     app: "surmax-manager-h5",
                     namespace: "dev",
                     lang: 'nodejs',
+                    artifact: 'build',
                     git: 'http://gitlab.top.mw/front/surmax-manager-h5.git'
             ],
     ]
