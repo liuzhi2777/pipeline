@@ -43,7 +43,14 @@ class AppMeta {
                     artifact: 'distribution-service/target/distribution-service.jar',
                     git: 'http://gitlab.top.mw/distribution/distribution.git'
             ],
-			
+
+            [
+                    app: "tech-process",
+                    lang: 'java',
+                    namespace: 'default',
+                    artifact: 'technology-processTechnology-service-provider/target/technology-process-service.jar',
+                    git: 'http://gitlab.top.mw/technical-management/technology-processTechnology.git'
+            ],
             //  production
             [
                     app: "production-base",
