@@ -47,7 +47,7 @@ class AppMeta {
             [
                     app: "tech-process",
                     lang: 'java',
-                    namespace: 'default',
+                    namespace: 'dev',
                     artifact: 'technology-processTechnology-service-provider/target/technology-process-service.jar',
                     git: 'http://gitlab.top.mw/technical-management/technology-processTechnology.git'
             ],
