@@ -488,11 +488,12 @@ class AppMeta {
         map.put('javaOpts', opts)
     }
 
-    def getEnv(String env, String branch) {
+    def getEnv(String env) {
         if (env.equals("dev")) {
-            return branch
+            return "dev"
         }
-        return "release"
+        return "test"
+//        return "release"
     }
 
     def getStr(String json) {

@@ -28,7 +28,7 @@ def call(Map map) {
 
         parameters {
             choice(name: 'BUILD_ENV', choices: 'dev\ntest\nuat', description: '请选择部署环境:')
-            choice(name: 'BUILD_BRANCH', choices: 'dev\nrelease', description: '请选择分支:')
+//            choice(name: 'BUILD_BRANCH', choices: 'dev\nrelease', description: '请选择分支:')
         }
 
         stages {
@@ -53,9 +53,10 @@ def call(Map map) {
             stage('拉取代码') {
                 steps {
                     script {
-                        log.debug("选择的分支: ${params.BUILD_BRANCH}")
                         log.debug("部署环境: ${params.BUILD_ENV}")
-                        git branch: params.BUILD_BRANCH, credentialsId: 'gitlab', url: map.git
+                        def br = new com.mw.AppMeta().getEnv("${params.BUILD_ENV}")
+                        log.debug("br: ${br}")
+                        git branch: br, credentialsId: 'gitlab', url: map.git
                     }
                 }
             }
