@@ -78,7 +78,7 @@ class AppMeta {
             [
                     app: "base",
                     lang: 'java',
-                    namespace: 'dev',
+                    namespace: 'default',
                     artifact: 'base-service/target/base-service.jar',
                     git: 'http://gitlab.top.mw/base/base.git'
             ],
