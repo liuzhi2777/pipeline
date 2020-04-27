@@ -73,6 +73,11 @@ def call(Map map) {
             }
 
             stage('编译') {
+                when {
+                    expression {
+                        return isIgnore()
+                    }
+                }
                 steps {
                     nodejs('NODEJS') {
                         sh "yarn install"

@@ -424,6 +424,7 @@ class AppMeta {
                     namespace: "dev",
                     lang: 'nodejs',
                     artifact: 'dist',
+                    compile: false,
                     git: 'http://gitlab.top.mw/front/components.git'
             ],
             [
