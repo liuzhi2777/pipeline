@@ -75,7 +75,7 @@ def call(Map map) {
             stage('编译') {
                 when {
                     expression {
-                        return isIgnore()
+                        return isIgnore(map)
                     }
                 }
                 steps {
