@@ -161,7 +161,7 @@ class AppMeta {
 			
 			//  fixedassets
 		    [
-                    app: "fixedassets",
+                    app: "fixed-assets",
                     lang: 'java',
                     namespace: 'dev',
                     artifact: 'fixedAssets-base/target/fixedAssets-base.jar',
