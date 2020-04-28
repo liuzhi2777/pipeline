@@ -159,6 +159,15 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/bill-center/bill-center.git'
             ],
 			
+			//  fixedassets
+		    [
+                    app: "fixedassets",
+                    lang: 'java',
+                    namespace: 'dev',
+                    artifact: 'fixedAssets-base/target/fixedAssets-base.jar',
+                    git: 'http://gitlab.top.mw/fixedAssets/fixedAssets-base.git'
+            ],
+			
 			//  finance
 		    [
                     app: "finance",
