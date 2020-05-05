@@ -477,7 +477,7 @@ class AppMeta {
                     lang: 'nodejs',
                     artifact: 'build',
                     git: 'http://gitlab.top.mw/front/surmax-manager-h5.git'
-            ],
+            ]
     ]
 
     def getMeta(String app) {
