@@ -236,8 +236,8 @@ class AppMeta {
                     app: "finance-processproject",
                     lang: 'java',
                     namespace: 'dev',
-                    artifact: 'finance-profitallot-service/target/finance-profitallot-service.jar',
-                    git: 'http://gitlab.top.mw/finance/finance-profitAllot.git'
+                    artifact: 'finance-processproject/target/finance-processproject.jar',
+                    git: 'http://gitlab.top.mw/fixedAssets/processProject.git'
             ],
 		    [
                     app: "finance-settleaccounts",
