@@ -472,6 +472,13 @@ class AppMeta {
                     git: 'http://gitlab.top.mw/front/supply-manager-vue.git'
             ],
             [
+                    app: "microshop-admin-vue",
+                    namespace: "dev",
+                    lang: 'nodejs',
+                    artifact: 'dist',
+                    git: 'http://gitlab.top.mw/front/microshop-admin-vue.git'
+            ],
+            [
                     app: "surmax-manager-h5",
                     namespace: "dev",
                     lang: 'nodejs',
