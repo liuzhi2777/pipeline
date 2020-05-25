@@ -135,6 +135,8 @@ def call(Map map) {
             stage('推送镜像') {
                 steps {
                     script {
+                        def url = isDev() ? "$HARBOR_URL" : "http://harbor.test.mw"
+                        log.debug("url ========= $url")
                         configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
                             docker.withRegistry("$HARBOR_URL", "harbor") {
                                 def app = docker.build("$IMAGE_NAME", "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} -f ${DOCKER_FILE} .")
