@@ -71,7 +71,7 @@ def call(Map map) {
                     script {
                         mvn { settings ->
                             def cmd = isDev() ? 'deploy' : 'deploy'
-                            sh "mvn -s ${settings} clean ${cmd} -B -Dfile.encoding=UTF-8 -Dmaven.test.skip=true -U"
+                            sh "mvn -s ${settings} clean ${cmd} -B -P${params.BUILD_ENV} -Dfile.encoding=UTF-8 -Dmaven.test.skip=true -U"
                         }
                     }
                 }
