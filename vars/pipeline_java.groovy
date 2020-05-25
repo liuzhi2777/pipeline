@@ -136,9 +136,8 @@ def call(Map map) {
                 steps {
                     script {
                         def url = isDev() ? "$HARBOR_URL" : "http://harbor.test.mw"
-                        log.debug("url ========= $url")
                         configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
-                            docker.withRegistry("$HARBOR_URL", "harbor") {
+                            docker.withRegistry("$url", "harbor") {
                                 def app = docker.build("$IMAGE_NAME", "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} -f ${DOCKER_FILE} .")
                                 app.push()
                             }
