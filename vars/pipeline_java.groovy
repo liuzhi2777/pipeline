@@ -80,7 +80,7 @@ def call(Map map) {
             stage('Sonar分析') {
                 when {
                     expression {
-                        return isDev()
+                        return isTest()
                     }
                 }
                 steps {
