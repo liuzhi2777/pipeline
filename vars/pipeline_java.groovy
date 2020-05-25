@@ -143,7 +143,7 @@ def call(Map map) {
                                 app.push()
                             }
                         }
-                        sh "docker rmi -f $IMAGE_NAME"
+                        sh "docker rmi -f $img"
                     }
                 }
             }
