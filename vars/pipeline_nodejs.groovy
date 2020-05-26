@@ -109,7 +109,7 @@ def call(Map map) {
                 }
             }
 
-            stage('同步阿里云') {
+            stage('同步腾讯云') {
                 when {
                     expression {
                         return isUat()
