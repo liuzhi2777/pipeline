@@ -132,29 +132,51 @@ def call(Map map) {
                 }
             }
 
+//            stage('推送镜像') {
+//                steps {
+//                    script {
+//                        def url = isDev() ? "$HARBOR_URL" : "http://harbor.test.mw"
+//                        def img = isDev() ? "$IMAGE_NAME" : "harbor.test.mw/library/${JOB_NAME}:${BUILD_ID}"
+//                        configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
+//                            docker.withRegistry("$url", "harbor") {
+//                                def app = docker.build("$img", "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} -f ${DOCKER_FILE} .")
+//                                app.push()
+//                            }
+//                        }
+//                        sh "docker rmi -f $img"
+//                    }
+//                }
+//            }
+//
+//            stage("K8S部署") {
+//                steps{
+//                    script {
+//                        configFileProvider([configFile(fileId: "${params.BUILD_ENV}-k8s-config", variable: 'config')]) {
+//                            def img = isDev() ? "$IMAGE_NAME" : "harbor.test.mw/library/${JOB_NAME}:${BUILD_ID}"
+//                            sh "docker run --rm -v ${config}:/.kube/config bitnami/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${img}"
+//                        }
+//                    }
+//                }
+//            }
+
             stage('推送镜像') {
                 steps {
                     script {
-                        def url = isDev() ? "$HARBOR_URL" : "http://harbor.test.mw"
-                        def img = isDev() ? "$IMAGE_NAME" : "harbor.test.mw/library/${JOB_NAME}:${BUILD_ID}"
                         configFileProvider([configFile(fileId: 'dockerfile', variable: 'DOCKER_FILE')]) {
-                            docker.withRegistry("$url", "harbor") {
-                                def app = docker.build("$img", "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} -f ${DOCKER_FILE} .")
+                            docker.withRegistry("$HARBOR_URL", "harbor") {
+                                def app = docker.build("$IMAGE_NAME", "--no-cache --build-arg JAR_PATH=${ARTIFACT} --build-arg JAR_NAME=${APP} -f ${DOCKER_FILE} .")
                                 app.push()
                             }
                         }
-                        sh "docker rmi -f $img"
+                        sh "docker rmi -f $IMAGE_NAME"
                     }
                 }
             }
 
             stage("K8S部署") {
                 steps{
-                    script {
-                        configFileProvider([configFile(fileId: "${params.BUILD_ENV}-k8s-config", variable: 'config')]) {
-                            def img = isDev() ? "$IMAGE_NAME" : "harbor.test.mw/library/${JOB_NAME}:${BUILD_ID}"
-                            sh "docker run --rm -v ${config}:/.kube/config bitnami/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${img}"
-                        }
+                    configFileProvider([configFile(fileId: "${params.BUILD_ENV}-k8s-config", variable: 'config')]) {
+                        sh "docker run --rm -v ${config}:/.kube/config bitnami/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${IMAGE_NAME}"
                     }
                 }
             }
