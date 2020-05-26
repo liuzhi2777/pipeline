@@ -30,8 +30,8 @@ def call(Map map) {
             stage('拉取代码') {
                 steps {
                     script {
-                        log.debug("选择的分支: ${params.BUILD_BRANCH}")
-                        git branch: params.BUILD_BRANCH, credentialsId: 'gitlab', url: map.git
+                        log.debug("选择的分支: ${params.BUILD_ENV}")
+                        git branch: params.BUILD_ENV, credentialsId: 'gitlab', url: map.git
                     }
                 }
             }
