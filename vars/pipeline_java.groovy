@@ -151,8 +151,7 @@ def call(Map map) {
             stage("K8S部署") {
                 steps{
                     configFileProvider([configFile(fileId: "${params.BUILD_ENV}-k8s-config", variable: 'config')]) {
-                        def img = isDev() ? "$IMAGE_NAME" : "harbor.test.mw/library/${JOB_NAME}:${BUILD_ID}"
-                        sh "docker run --rm -v ${config}:/.kube/config bitnami/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${img}"
+                        sh "docker run --rm -v ${config}:/.kube/config bitnami/kubectl:1.15 -n ${env.NS} set image deployment ${env.APP} ${env.APP}=${IMAGE_NAME}"
                     }
                 }
             }
