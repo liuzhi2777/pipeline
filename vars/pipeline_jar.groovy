@@ -22,7 +22,7 @@ def call(Map map) {
         }
 
         parameters {
-            choice(name: 'BUILD_BRANCH', choices: 'dev\nrelease', description: '请选择分支:')
+            choice(name: 'BUILD_ENV', choices: 'dev\ntest', description: '请选择分支:')
         }
 
         stages {
@@ -39,7 +39,7 @@ def call(Map map) {
             stage('编译发布') {
                 steps {
                     mvn { settings ->
-                        sh "mvn -s ${settings} clean deploy -B -Dfile.encoding=UTF-8 -Dmaven.test.skip=true -U"
+                        sh "mvn -s ${settings} clean deploy -B -P${params.BUILD_ENV} -Dfile.encoding=UTF-8 -Dmaven.test.skip=true -U"
                     }
                 }
             }
