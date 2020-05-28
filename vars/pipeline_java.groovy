@@ -39,7 +39,6 @@ def call(Map map) {
             stage('认证') {
                 when {
                     anyOf {
-                        environment name: 'BUILD_ENV', value: 'test'
                         environment name: 'BUILD_ENV', value: 'uat'
                     }
                 }
