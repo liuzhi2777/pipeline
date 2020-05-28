@@ -30,7 +30,7 @@ def call(Map map) {
         }
 
         parameters {
-            choice(name: 'BUILD_ENV', choices: 'dev\ntest\nuat', description: '请选择部署环境:')
+            choice(name: 'BUILD_ENV', choices: 'dev\ntest', description: '请选择部署环境:')
 //            gitParameter(branchFilter: 'origin/(.*)', defaultValue: 'dev', name: 'BUILD_BRANCH', type: 'PT_BRANCH', description: '请选择分支(该参数只在开发环境有效):', useRepository: "${map.git}")
         }
 
